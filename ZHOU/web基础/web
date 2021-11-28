@@ -1,0 +1,105 @@
+1.域名
+    1. 什么是域名
+        1. 网站的名字URL
+    2. 域名在哪注册
+        1. 万网
+        2. 新网
+        3. 阿里云
+    3. 什么是二级域名或者多级域名
+        1. 就比如一个人的小名或者称号、外号等
+        2. www.baidu.com下的baidu.com
+    4. 域名发现对于安全测试意义
+        1. 可以寻找多个突破口
+        2. 多个测试点
+        3. 通过ping获取IP地址（DNS解析）
+2. DNS
+    1. 什么是DNS
+        1. 域名系统（服务）协议：作为将域名和IP地址互相映射的一个分布式数据库，能让人更方便地访问互联网。
+        （将域名解析为IP地址）
+    2. 本地HOSTS与DNS的关系
+        1. 类似国内外节点转换
+        2. 实现国内访问国内的节点
+    3. CDN是什么？与DNS的关系
+        1. 节点分发，就近原则
+        2. 类似主域名的小弟，有主域名的缓存
+    4. 常见的DNS安全攻击有哪些
+        1. DNS劫持
+3. 脚本语言
+    1. 常见的脚本类型
+        * asp
+        * php
+        * apsx
+        * jsp
+        * javaweb
+        * pl
+        * py
+        * cgi等
+    2. 不同脚本类型与安全漏洞的关系
+    3. 漏洞挖掘代码审计与脚本类型的关系
+4. 后门
+    1. 什么是后门？有哪些后门
+        * 一般是是指那绕过安全性控制而获取程序或系统访问权的程序方法。后门是程序员通常会在软件内创建后门程序以便修改程序设计的缺陷。
+        * 基于网站、基于服务器
+    2. 后门在安全测试中的实际意义
+        * 方便测试
+        * 操作网站或者服务器
+    3. 关于后门需要了解哪些？（玩法，免杀）
+5. WEB
+    1. web的组成框架架构模型
+        1. 网站源码，分脚本类型、应用方向
+        2. 操作系统，windows、linux等
+        3. 中间件（搭建平台）：apache iis tomcat nginx等
+        4. 数据库：access mysql mssql db2 postsql等
+    1. 架构漏洞安全测试简要介绍
+    2. 攻击为什么要从web层面为主为首
+        * 使用于网站上有很多注入，可以通过网站源码的漏洞获得一些权限，再提权，获取服务器的控制器
+        * 其次操作系统的漏洞很少，有的漏洞利用也很难
+6. WEB相关安全漏洞
+    1. web源码类对应漏洞
+        * SQL注入、文件上传、XSS、代码执行、变量覆盖、逻辑漏洞、反序列化等
+    2. web中间件对应漏洞https://www.cnblogs.com/vege/p/13261571.html
+        1. IIS
+            1. 解析漏洞
+            2. PUT任意文件写入
+            3. IIS段文件漏洞
+            4. HTTP.SYS远程代码执行（MS15-034）
+        2. Apache
+            1. 解析漏洞
+                1. 未知扩展名解析漏洞
+                2. Add Handler导致的解析漏洞
+                3. Apache HTTPD换行解析漏洞
+        3. Nginx
+            1. Nginx配置文件错误导致的解析漏洞
+            2. Nginx空字节任意代码执行漏洞
+            3. Nginx文件名逻辑漏洞
+            4. Nginx配置错误导致的安全问题
+                1. CRLF注入
+                2. 目录穿越
+                3. 目录遍历
+                4. add_header被覆盖
+        4. Tomcat
+            1. Tomcat任意文件写入（CVE-2017-12615）
+            2. Tomcat远程代码执行（CVE-2019-0232）
+            3. Tomcat+弱口令 &&后台getshell漏洞
+            4. Tomcat manager App暴力破解
+        5. Jboss
+            1. 5.x/6.x反序列化漏洞
+            2. JBoss JMXInvokerServlet反序列化漏洞
+            3. Administration Console弱口令
+            4. JMX Console未授权访问
+        6. WebLogic
+            1. XMLDecoder 反序列化漏洞
+            2. Weblogic wls9_async_response,wls-wsat 反序列化远程代码执行漏洞
+            3. Weblogic WLS Core Components 反序列化命令执行漏洞
+            4. Weblogic 任意文件上传漏洞
+            5. Weblogic SSRF漏洞
+            6. Weblogic 弱口令&& 后台getshell
+    3. web数据库对应漏洞
+    4. web系统层对应漏洞
+    5. 其他第三方对应漏洞
+    6. APP或PC应用结合类
+7. 举例
+    1. 多级域名的枚举查找（原理、方式）
+    2. DNS解析修改后分析（本地或服务）
+    3. EXE后门功能及危害类似web后门
+    4. APP结合web协议，PC类结合微博协议

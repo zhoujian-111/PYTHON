@@ -1,0 +1,19 @@
+#encoding:utf-8
+"""
+@time:2021/11/17
+@author:Byte Xiaochai
+@software:PyCharm
+@contact:2732472354@qq.com
+@file:数据库的创建
+"""
+import mysql.connector
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  passwd="root",
+  database = "mydatabase"  #连接到mydatabase数据库   这是展示完show database后，可以连接到mydatabase数据库
+)
+mycursor = mydb.cursor()
+mycursor.execute("show DATABASES")   #（）中提前创建好database数据库   代码：mycursor.execute(CREATE DATABASE mydatabase)
+for x in mycursor:
+  print(x)

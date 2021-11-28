@@ -1,0 +1,39 @@
+HTTP/S数据包
+    1.Request请求数据包
+    2.Proxy代理服务器
+    3.response返回数据包
+SSRF漏洞
+ 服务端请求伪造，也称XSPA(跨站端点攻击)
+ 本质：
+    在服务器上有一个我们能控制url注入的“浏览器”
+危害：（get型/post）
+    扫描内网存活的主机或者端口
+    读取文件内容，配置文件
+    对内网发起攻击
+    shell
+如何判断有SSRF漏洞
+    回显
+    延时
+    dns请求
+相关函数
+     file_get_contents("http://www.baidu.com")
+     file_get_contents("file:///目录")
+     fsockopen（“端口”）开着显示 #几
+     curl_http://www.baidu.com
+     include http://www.XXX.com
+     readfile("位置，网址")
+IP绕过
+   添加端口，短网址生成器
+   ip地址转十进制，十六进制
+   指向任意的ip域名加上xip.io
+       10.0.0.1.xip.io 10.0.0.1
+
+       www.10.0.0.1.xip.io 10.0.0.1
+
+       mysite.10.0.0.1.xip.io 10.0.0.1
+
+       foo.bar.10.0.0.1.xip.io 10.0.0.1
+   http://user:passwd@baidu.com/path/
+   dict://127.0.0.1:22/info    22号端口
+万能协议：
+   gopher协议（支持发送get/post）
